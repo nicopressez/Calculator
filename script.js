@@ -1,5 +1,5 @@
 let firstNumber;
-let secondNumber = 2;
+let secondNumber;
 let operator;
 
 const zeroBtn = document.getElementById("number_zero");
@@ -19,6 +19,9 @@ const subBtn = document.getElementById("minus");
 const plusBtn = document.getElementById("plus");
 const decimalBtn = document.getElementById("decimal");
 const equalBtn = document.getElementById("equal");
+
+const clearBtn = document.getElementById("clear");
+const deleteBtn = document.getElementById("delete");
 
 const currentDisplay = document.getElementById("currentNumber");
 const previousDisplay = document.getElementById("previousNumber")
@@ -89,6 +92,8 @@ multiplyBtn.addEventListener('click', () => addOperator("multiply"));
 plusBtn.addEventListener('click', () => addOperator("plus"));
 subBtn.addEventListener('click', () => addOperator("minus"));
 
+deleteBtn.addEventListener('click', () => deleteProcess());
+
 equalBtn.addEventListener('click', () => startOperation());
 
 function addOperator(pressed)
@@ -104,4 +109,17 @@ function startOperation()
     secondNumber = displayValue;
     result = operate(operator, firstNumber, secondNumber);
     currentDisplay.innerHTML = result;
+    displayValue = +currentDisplay.innerHTML;
+    firstNumber = displayValue;
+}
+
+// Todo: add delete button
+// todo: display whole operation on the upper screen
+// todo: cant operate with = if no numbers;
+
+function deleteProcess()
+{
+  currentDisplay.textContent =  currentDisplay.textContent.slice(0, -1);
+  displayValue = +currentDisplay.innerHTML;
+  
 }
