@@ -24,7 +24,7 @@ const clearBtn = document.getElementById("clear");
 const deleteBtn = document.getElementById("delete");
 
 const currentDisplay = document.getElementById("currentNumber");
-const previousDisplay = document.getElementById("previousNumber")
+const upperDisplay = document.getElementById("previousNumber")
 
 let displayValue = +currentDisplay.innerHTML;
 
@@ -54,15 +54,16 @@ function subtract(first,second){return first - second;}
 function multiply(first,second){return first * second;}
 function divide(first,second){return first / second;}
 
-function operate(operator,firstNumber,secondNumber)
-{if (operator == 'plus') 
- {return add(firstNumber,secondNumber)}
- else if (operator == 'minus') 
- {return subtract(firstNumber,secondNumber)}
- else if (operator == 'multiply')
- {return multiply(firstNumber,secondNumber)}
- else if (operator == 'div')
- {return divide(firstNumber,secondNumber)};}
+function operate(operator,firstNumber,secondNumber) {
+if (operator == 'plus') 
+    {return add(firstNumber,secondNumber)}
+    else if (operator == 'minus') 
+    {return subtract(firstNumber,secondNumber)}
+    else if (operator == 'multiply')
+    {return multiply(firstNumber,secondNumber)}
+    else if (operator == 'div')
+    {return divide(firstNumber,secondNumber)};
+}
 
 
 // when I click on X button, return X.value  on display
@@ -102,19 +103,20 @@ function addOperator(pressed)
  operator = buttonsList.find(item => item.buttons == pressed).value;
  firstNumber = displayValue;
  currentDisplay.textContent = "";
+ updateUpperDisplay();
  displayValue = +currentDisplay.innerHTML; 
 }
 
 function startOperation()
 {
+if (typeof firstNumber === 'undefined' || secondNumber ==='undefined' || typeof operator === 'undefined') {return;}
     secondNumber = displayValue;
     result = operate(operator, firstNumber, secondNumber);
     currentDisplay.innerHTML = result;
     displayValue = +currentDisplay.innerHTML;
     firstNumber = displayValue;
+
 }
-// todo: display whole operation on the upper screen
-// todo: cant operate with = if no numbers;
 
 function deleteProcess()
 {
@@ -126,8 +128,14 @@ function deleteProcess()
 function clearProcess()
 {
     currentDisplay.textContent = "";
+    upperDisplay.innerText = "";
     displayValue = "";
-    firstNumber = "";
-    secondNumber = "";
-    operator = "";
+    firstNumber = undefined;
+    secondNumber = undefined;
+    operator = undefined;
+}
+
+function updateUpperDisplay()
+{
+    upperDisplay.innerText = `${firstNumber}`;
 }
