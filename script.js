@@ -93,6 +93,7 @@ plusBtn.addEventListener('click', () => addOperator("plus"));
 subBtn.addEventListener('click', () => addOperator("minus"));
 
 deleteBtn.addEventListener('click', () => deleteProcess());
+clearBtn.addEventListener('click', () => clearProcess());
 
 equalBtn.addEventListener('click', () => startOperation());
 
@@ -112,8 +113,6 @@ function startOperation()
     displayValue = +currentDisplay.innerHTML;
     firstNumber = displayValue;
 }
-
-// Todo: add delete button
 // todo: display whole operation on the upper screen
 // todo: cant operate with = if no numbers;
 
@@ -122,4 +121,13 @@ function deleteProcess()
   currentDisplay.textContent =  currentDisplay.textContent.slice(0, -1);
   displayValue = +currentDisplay.innerHTML;
   
+}
+
+function clearProcess()
+{
+    currentDisplay.textContent = "";
+    displayValue = "";
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
 }
