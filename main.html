@@ -3,13 +3,44 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Calculator</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        
+        <div id="calculator" class="calculator">
+          <div id="screen" class="screen">
+            <p id="previousNumber" class="previousNumber">5 +</p>
+            <p id="currentNumber" class="currentNumber">2</p>
+          </div>
+          <button id="clear" class="clear">CLEAR</button>
+          <button id="delete" class="delete">DELETE</button>
+         
+          <div class="buttonsArea" id="buttonsArea">
+            <button class="number one" id="number_one">1</button>
+            <button class="number two" id="number_two">2</button>
+            <button class="number three" id="number_three">3</button>
+            <button class="operator divider" id="div">/</button>
+
+            <button class="number four" id="number_four">4</button>
+            <button class="number five" id="number_five">5</button>
+            <button class="number six" id="number_six">6</button>
+            <button class="operator multiplier" id="multiplier">x</button>
+
+            <button class="number seven" id="number_seven">7</button>
+            <button class="number eight" id="number_eight">8</button>
+            <button class="number nine" id="number_nine">9</button>
+            <button class="operator subtraction" id="minus">-</button>
+            
+            <button class="operator decimal" id="decimal">.</button>
+            <button class="number zero" id="number_zero">0</button>
+            <button class="operator equal" id="equal">=</button>
+            <button class="operator plus" id="plus">+</button>
+          </div>
+        </div>
+
+
         <script src="./script.js" async defer></script>
     </body>
 </html>
