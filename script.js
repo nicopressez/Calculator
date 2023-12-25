@@ -1,6 +1,6 @@
-let firstNumber = 5;
-let secondNumber = 2;
-let operator = '-' ;
+let firstNumber;
+let secondNumber;
+let operator;
 
 const zeroBtn = document.getElementById("number_zero");
 const oneBtn = document.getElementById("number_one");
@@ -23,6 +23,27 @@ const equalBtn = document.getElementById("equal");
 const currentDisplay = document.getElementById("currentNumber");
 const previousDisplay = document.getElementById("previousNumber")
 
+let displayValue = +currentDisplay.innerHTML;
+
+buttonsList = [
+    {buttons: "zero", value: 0,},
+    {buttons: "one", value: 1},
+    {buttons: "two", value: 2},
+    {buttons: "three", value: 3},
+    {buttons: "four", value: 4},
+    {buttons: "five", value: 5},
+    {buttons: "six", value: 6},
+    {buttons: "seven", value: 7},
+    {buttons: "eight", value: 8},
+    {buttons: "nine", value: 9},
+    {buttons: "div", value: "÷" },
+    {buttons: "multiply", value: "x" },
+    {buttons: "sub", value: "-"},
+    {buttons: "plus", value: "+"},
+    {buttons: "decimal", value: "."},
+    {buttons: "equal", value: "="},
+]
+
 
 operate(operator,firstNumber,secondNumber)
 
@@ -43,16 +64,25 @@ function operate(operator,firstNumber,secondNumber)
 
 
 // when I click on X button, return X.value  on display
+
 function updateDisplay(button)
 {
-    let numberPressed =  buttonsArray.find(item => item.buttons == button).value;
-    currentDisplay.textContent = numberPressed;
+    let numberPressed =  buttonsList.find(item => item.buttons == button).value;
+    currentDisplay.textContent += numberPressed;
+    displayValue = +currentDisplay.innerHTML; 
 }
 
-// Todo: add all numbers to the array
-// Todo: add event listeners to every button to trigger the updateDisplay function
-// Todo: store display value in a variable
+zeroBtn.addEventListener('click', () => updateDisplay("zero"));
+oneBtn.addEventListener('click', () => updateDisplay("one"));
+twoBtn.addEventListener('click', () => updateDisplay("two"));
+threeBtn.addEventListener('click', () => updateDisplay("three"));
+fourBtn.addEventListener('click', () => updateDisplay("four"));
+fiveBtn.addEventListener('click', () => updateDisplay("five"));
+sixBtn.addEventListener('click', () => updateDisplay("six"));
+sevenBtn.addEventListener('click', () => updateDisplay("seven"));
+eightBtn.addEventListener('click', () => updateDisplay("eight"));
+nineBtn.addEventListener('click', () => updateDisplay("nine"));
 
-buttonsArray = [
-    {buttons: "zero", value: 0}
-]
+decimalBtn.addEventListener('click', () => updateDisplay("decimal"));
+
+divBtn.addEventListener('click', () => updateDisplay("div"));
