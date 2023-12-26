@@ -55,14 +55,18 @@ function multiply(first,second){return first * second;}
 function divide(first,second){return first / second;}
 
 function operate(operator,firstNumber,secondNumber) {
-if (operator == 'plus') 
-    {return add(firstNumber,secondNumber)}
+    if (operator == 'plus') 
+        {result =  add(firstNumber,secondNumber)
+        return rounded = result % 1 !== 0 ? result.toFixed(3) : result;}
     else if (operator == 'minus') 
-    {return subtract(firstNumber,secondNumber)}
+        {result =  subtract(firstNumber,secondNumber)
+        return rounded = result % 1 !== 0 ? result.toFixed(3) : result;}
     else if (operator == 'multiply')
-    {return multiply(firstNumber,secondNumber)}
+        {result = multiply(firstNumber,secondNumber)
+        return rounded = result % 1 !== 0 ? result.toFixed(3) : result;}
     else if (operator == 'div')
-    {return divide(firstNumber,secondNumber)};
+        {result = divide(firstNumber,secondNumber)
+        return rounded = result % 1 !== 0 ? result.toFixed(3) : result;}
 }
 
 
