@@ -70,9 +70,11 @@ if (operator == 'plus')
 
 function updateDisplay(button)
 {
-    let numberPressed =  buttonsList.find(item => item.buttons == button).value;
-    currentDisplay.textContent += numberPressed;
-    displayValue = +currentDisplay.innerHTML; 
+    if (button == "decimal" && currentDisplay.textContent.includes('.')){return;}
+    else {
+     let numberPressed =  buttonsList.find(item => item.buttons == button).value;
+     currentDisplay.textContent += numberPressed;
+     displayValue = +currentDisplay.innerHTML;};
 }
 
 zeroBtn.addEventListener('click', () => updateDisplay("zero"));
@@ -139,3 +141,4 @@ function updateUpperDisplay()
 {
     upperDisplay.innerText = `${firstNumber}`;
 }
+
