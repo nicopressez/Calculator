@@ -5,6 +5,7 @@
 
 .calculator
 {
+    background-color: darkgray;
     border: 2px solid;
     margin: 15vh auto;
     height: 580px;
@@ -14,6 +15,7 @@
 
 .screen
 {
+    background-color: white;
     border: 2px solid;
     margin-top: 15px;
     margin-left: auto;
@@ -33,11 +35,13 @@
 
 .clear
 {
+    background-color: yellowgreen;
     margin-left: 10px;
 }
 
 .delete
 {
+    background-color: crimson;
     margin-right: 10px;
 }
 
@@ -84,4 +88,10 @@ button
     padding-right: 5px;
     width: 100%;
     text-align: right;
+}
+
+button:hover
+{
+    cursor: pointer;
+    filter: brightness(90%);
 }
